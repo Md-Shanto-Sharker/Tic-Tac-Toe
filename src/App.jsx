@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -19,6 +20,12 @@ export default function Board() {
   let status;
   if (winner) {
     status = `Winner:${winner}`;
+
+    Swal.fire({
+  title: "Good job!",
+  text: "You are Win!",
+  icon: "success"
+});
   } else {
     status = "Next player : " + (xIsNext ? "X" : "O");
   }
